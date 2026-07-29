@@ -1,0 +1,137 @@
+# ==============================================================================
+# AI Journey Root .gitignore
+# Modern Python (3.13+), uv, VS Code, Jupyter, multi-platform & ML artifacts
+# ==============================================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Testing & Quality Tools ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.basedpyright_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# --- Virtual Environments (uv & standard) ---
+.venv/
+.venv*/
+venv/
+venv*/
+ENV/
+env/
+env*/
+.uv/
+
+# --- Jupyter & Notebooks ---
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+*.nbconvert.html
+
+# --- IDEs & Editors ---
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+
+# Unix / Emacs / Vim
+*~
+*.swp
+*.swo
+\#*\#
+.\#*
+
+# --- Operating Systems ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.fuse_hidden*
+.directory
+
+# --- Machine Learning, Data & Artifacts ---
+# Model weights & large binaries
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.h5
+*.hdf5
+*.ckpt
+*.tflite
+*.pb
+*.model
+
+# Datasets (ignore large data files inside datasets folders, keep structure)
+**/datasets/*.csv
+**/datasets/*.parquet
+**/datasets/*.arrow
+**/datasets/*.feather
+**/datasets/*.jsonl
+**/datasets/*.zip
+**/datasets/*.tar.gz
+**/datasets/*.gz
+!**/datasets/.gitkeep
+!**/datasets/README.md
+
+# MLOps & Experiment Tracking
+mlruns/
+wandb/
+tb_logs/
+lightning_logs/
+outputs/
+.dvc/cache/
+.dvc/tmp/

@@ -1,0 +1,59 @@
+{
+  // --- Python Environment & Language Server ---
+  "python.languageServer": "Default",
+  "python.defaultInterpreterPath": "${workspaceFolder}/ml-learning/.venv/Scripts/python",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.indexing": true,
+
+  // --- BasedPyright Configuration ---
+  "basedpyright.analysis.typeCheckingMode": "standard",
+  "basedpyright.analysis.autoImportCompletions": true,
+  "basedpyright.analysis.diagnosticMode": "workspace",
+  "basedpyright.analysis.useLibraryCodeForTypes": true,
+  "basedpyright.analysis.extraPaths": [
+    "${workspaceFolder}/ml-learning/src",
+    "${workspaceFolder}/shared/src"
+  ],
+
+  // --- Formatting & Linting (Ruff) ---
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit",
+      "source.fixAll.ruff": "explicit"
+    }
+  },
+
+  // --- Jupyter Notebook Settings ---
+  "notebook.formatOnSave": true,
+  "notebook.codeActionsOnSave": {
+    "source.organizeImports.ruff": "explicit"
+  },
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+  "jupyter.askForKernelRestart": false,
+
+  // --- File Exclusion & Search ---
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.mypy_cache": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.venv/**": true,
+    "**/__pycache__/**": true
+  },
+  "python.analysis.extraPaths": [
+    "./ml-learning/src"
+  ]
+}

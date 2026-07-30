@@ -23,9 +23,34 @@ class KMeans:
     def fit(self, X: np.ndarray) -> Self:
         """Compute K-means clustering centroids."""
         # TODO: Implement K-Means clustering iterative centroid optimization
-        raise NotImplementedError("Implement K-Means fit algorithm here!")
+        random_indices = np.random.choice(X.shape[0], self.n_clusters, replace=False)
+
+        self.centroids = X[random_indices]
+
+        for _ in range(self.max_iter):
+            label = self.predict(X)
+
+            # Lưu lại tâm cũ để so sánh
+            old_centroids = self.centroids.copy()
+
+            # Cập nhật tâm cụm
+            for j in range(self.n_clusters):
+                # lấy ra điểm thuộc centroids đó
+                points_in_centroids = X[label == j]
+
+                if len(points_in_centroids) > 0:
+                    self.centroids[j] = np.mean(points_in_centroids, axis=0)
+
+            if np.allclose(self.centroids, old_centroids, atol=self.tol):
+                break
+        return self
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Predict the closest cluster for each sample in X."""
         # TODO: Implement nearest centroid assignment logic
-        raise NotImplementedError("Implement K-Means predict logic here!")
+        if self.centroids is None:
+            raise ValueError("Model must be trained")
+
+        X_newaxis = X[:, np.newaxis]
+        distances = np.linalg.norm(X_newaxis - self.centroids, axis=2)
+        return np.argmin(distances, axis=1)

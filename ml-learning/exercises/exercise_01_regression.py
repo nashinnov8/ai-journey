@@ -2,14 +2,10 @@
 
 Goal: Extend the OLS Linear Regression formula:
     theta = (X^T X + lambda * I)^(-1) X^T y
-
-Instructions:
-1. Complete the RidgeRegression class below.
-2. Ensure intercept term is NOT regularized (diagonal entry for intercept should be 0).
-3. Test your implementation against Scikit-Learn's Ridge regression model.
 """
 
 from typing import Self
+
 import numpy as np
 
 
@@ -31,14 +27,14 @@ class RidgeRegressionScratch:
             X_mat = np.hstack((ones, X_mat))
 
         n_features = X_mat.shape[1]
-        # L2 Penalty matrix I, without penalizing intercept (w_0)
-        I = np.eye(n_features, dtype=np.float64)
+        # L2 Penalty matrix identity_mat, without penalizing intercept (w_0)
+        identity_mat = np.eye(n_features, dtype=np.float64)
         if self.fit_intercept:
-            I[0, 0] = 0.0
+            identity_mat[0, 0] = 0.0
 
         # Analytical solution: (X^T X + alpha * I)^(-1) X^T y
-        A = X_mat.T @ X_mat + self.alpha * I
-        self.weights = np.linalg.solve(A, X_mat.T @ y_vec)
+        a_mat = X_mat.T @ X_mat + self.alpha * identity_mat
+        self.weights = np.linalg.solve(a_mat, X_mat.T @ y_vec)
         return self
 
     def predict(self, X: np.ndarray) -> np.ndarray:

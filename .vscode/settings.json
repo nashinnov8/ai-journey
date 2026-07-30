@@ -1,6 +1,6 @@
 {
   // --- Python Environment & Language Server ---
-  "python.languageServer": "Default",
+  "python.languageServer": "None",
   "python.defaultInterpreterPath": "${workspaceFolder}/ml-learning/.venv/Scripts/python",
   "python.analysis.autoImportCompletions": true,
   "python.analysis.indexing": true,
